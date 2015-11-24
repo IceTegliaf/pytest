@@ -10,8 +10,9 @@ class Command(BaseCommand):
         
         
         print "My site:"
-        for site in Site.objects.all():
-            log = Log(site = site)
+        for site in Site.objects.filter(is_enabled=True):
+            print "  parse:", site
+            log = Log(site = site)            
             try:
                 r = requests.get(site.url)
                 log.is_ok = r.status_code == 200
@@ -20,4 +21,6 @@ class Command(BaseCommand):
                 log.is_ok = False
                 log.error_text = "%s" % e
             log.save()
+            
+        
   

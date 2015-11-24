@@ -17,4 +17,5 @@ class Log(models.Model):
     http_status = models.PositiveIntegerField(null=True)
     error_text = models.TextField()
     
+    cool = 3 
     
