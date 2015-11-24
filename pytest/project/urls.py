@@ -6,12 +6,13 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 import os
 
+admin.autodiscover()
 
 urlpatterns = patterns('',
    url(r'^admin/', include(admin.site.urls)),
 )
 
-if settings.DEBUG or True:    
+if settings.DEBUG or True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes = True)
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += patterns('',

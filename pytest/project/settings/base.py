@@ -38,8 +38,11 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'src', 'static'),
 )
 
+
+
 # List of finder classes that know how to find static files in
 # various locations.
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -61,6 +64,7 @@ if not hasattr(globals(), 'SECRET_KEY'):
             raise Exception('Please create a %s file with random characters to generate your secret key!' % SECRET_FILE)
 
 ROOT_URLCONF = "urls"
+
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
@@ -94,6 +98,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     
     "south",
+    
+    "pingator",
 ]
 
 # LOGIN_URL = '/smartlogin/'
@@ -104,3 +110,6 @@ INSTALLED_APPS = [
 
 DEBUG = True
 TEMPLATE_DEBUG = False
+
+
+SITE_ID = 1
